@@ -67,6 +67,48 @@ The Laravel framework is a web application framework with expressive, elegant sy
 
 Now you can open your browser and visit `http://127.0.0.1:8000`.
 
+---
+
+## III. Installing Filament Admin Panel
+
+1. To install **Filament v3**, follow the official documentation [FilamantV3](https://filamentphp.com/docs/3.x/panels/installation) or run the following commands:
+
+    ```bash
+    composer require filament/filament:"^3.3" -W
+    php artisan filament:install --panels
+    ```
+
+2. Create a user for accessing the Filament panel:
+    ```bash
+    php artisan make:filament-user
+    ```
+
+   Example user details:
+    ```
+    Email: admin123@yopmail.com
+    Password: admin123@yopmail
+    ```
+
+3. Open `/admin` in your web browser, sign in with the credentials, and start building your app!
+
+---
+
+## IV. Improving Filament Panel Performance
+
+For better performance of the Filament admin panel, run the following commands:
+
+- To optimize the panel by caching Blade views, icons, and components:
+    ```bash
+    php artisan filament:optimize
+    ```
+
+- To clear the cache:
+    ```bash
+    php artisan filament:optimize-clear
+    ```
+
+---
+
 ## IV. License
 
 The Laravel framework is open-sourced software licensed under the MIT license.
