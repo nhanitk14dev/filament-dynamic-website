@@ -98,7 +98,7 @@ Now you can open your browser and visit `http://127.0.0.1:8000`.
           'allowed_email_domains' => [
               '@gmail.com',
               '@yopmail.com',
-              '@vn.com',  // Example for company email domain
+              '@dev.com',  // Example for company email domain
           ],
       ];
       ```
@@ -122,6 +122,32 @@ For better performance of the Filament admin panel, run the following commands:
 
 ---
 
-## IV. License
+## V. Fabricator - Block-Based Page Builder Skeleton for your Filament Apps
+[Fabricator](https://filamentphp.com/plugins/z3d0x-fabricator): is a block-based page builder plugin for Filament v3 that allows you to build dynamic frontend pages with reusable components.
+1. Install the Fabricator Plugin
+   ```bash
+    composer require z3d0x/filament-fabricator
+    php artisan filament-fabricator:install
+    php artisan migrate
+    ```
+2. Create a Custom Page Block
+    ```bash
+   php artisan filament-fabricator:block HeadingBlock
+   ```
+   This will generate a block class in app/Filament/Fabricator/PageBlocks/HeadingBlock.php and a Blade view in resources/views/components/filament-fabricator/page-blocks/heading.blade.php
+
+    ```text
+    @aware(['page'])
+    <div class="px-4 py-4 md:py-8">
+        <div class="max-w-7xl mx-auto">
+            <h1>
+                {{ $text ?? 'Default heading' }}
+            </h1>
+        </div>
+    </div>
+   ```
+   Feel free to custom CSS or styles.
+
+## License
 
 The Laravel framework is open-sourced software licensed under the MIT license.
