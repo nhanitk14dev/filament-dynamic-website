@@ -148,6 +148,41 @@ For better performance of the Filament admin panel, run the following commands:
    ```
    Feel free to custom CSS or styles.
 
+## VI. Menu Builder - Menu Builder for FilamentPHP
+[Menu Builder](https://filamentphp.com/plugins/biostate-menu-builder): a powerful menu builder for the Filament admin panel, enabling efficient menu creation and management,
+- Integrate models and routes into menu items for dynamic and flexible navigation.
+- Render menus with Blade components for consistency and adaptability.
+
+1. Install the package via composer
+   ```bash
+    composer require biostate/filament-menu-builder
+    php artisan vendor:publish --tag="filament-menu-builder-migrations"
+    php artisan migrate
+    php artisan vendor:publish --tag="filament-menu-builder-config"
+    ```
+2. Register the Plugin in Your Admin Panel Service Provider:
+   ```php
+    use Biostate\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
+
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->plugins([
+                FilamentMenuBuilderPlugin::make(),
+            ]);
+    }
+
+    ```
+3. Render the Menu with Blade Component:
+   Feel free to add the menu component to any layout in your project.
+   Below is an example of how you can display the menu in the resources/views/components/filament-fabricator/layouts/default.blade.php file. 
+   This is the layout for dynamic page rendering:
+
+    ```bladehtml
+        <x-filament-menu-builder::menu slug="main-menu" />
+     ```
+This will render the main-menu in your layout. You can adjust the layout as needed and style it with your custom CSS or TailwindCSS
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the MIT license.
