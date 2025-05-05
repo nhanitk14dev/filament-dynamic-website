@@ -85,10 +85,23 @@ Now you can open your browser and visit `http://127.0.0.1:8000`.
 
    Example user details:
     ```
-    Email: admin123@yopmail.com
-    Password: admin123@yopmail
+    Email: admin@dev.com
+    Password: Admin@dev
     ```
+    - **Domain-Based Access Control** for the Filament admin panel:
 
+   The `config/filament.php` file with the allowed email domains, and The `canAccessPanel` method in your `User.php` model will check the email domain and ensure the user has a verified email before granting access
+
+      ```php
+      // config/filament.php
+      return [
+          'allowed_email_domains' => [
+              '@gmail.com',
+              '@yopmail.com',
+              '@vn.com',  // Example for company email domain
+          ],
+      ];
+      ```
 3. Open `/admin` in your web browser, sign in with the credentials, and start building your app!
 
 ---
